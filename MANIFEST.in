@@ -1,0 +1,2 @@
+include versioneer.py
+include pyhmsa_afm/_version.py
