@@ -59,7 +59,7 @@ class _ImporterAFMAscThread(_ImporterThread):
                     break
                 parts = line.split("=")
                 if len(parts) == 1:
-                    parts = line.split(':')
+                    parts = line.split(':', 1)
                 if len(parts) == 2:
                     key = parts[0].strip()
                     if key.startswith('#'): key = key[1:]
@@ -78,7 +78,7 @@ class _ImporterAFMAscThread(_ImporterThread):
         if 'date' in headerdict:
             try:
                 dt = datetime.datetime.strptime(headerdict['date'],
-                                                '%d/%m/%Y %H:%M')
+                                                '%d.%m.%Y %H:%M')
                 header.date = dt.date()
                 header.time = dt.time()
             except:

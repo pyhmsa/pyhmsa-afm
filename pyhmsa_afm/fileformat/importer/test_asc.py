@@ -56,6 +56,11 @@ class TestImporterAFMAsc(unittest.TestCase):
         self.assertAlmostEqual(29.296875, convert_unit('nm', acq.step_size_x), 4)
         self.assertAlmostEqual(29.296875, convert_unit('nm', acq.step_size_y), 4)
 
+        self.assertEqual(2013, datafile.header.date.year)
+        self.assertEqual(5, datafile.header.date.month)
+        self.assertEqual(3, datafile.header.date.day)
+        self.assertEqual(8, datafile.header.time.hour)
+        self.assertEqual(20, datafile.header.time.minute)
 
 if __name__ == '__main__': #pragma: no cover
     logging.getLogger().setLevel(logging.DEBUG)
