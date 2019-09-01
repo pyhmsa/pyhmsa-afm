@@ -70,7 +70,8 @@ class _ImporterAFMAscThread(_ImporterThread):
         return headerdict, iline
 
     def _read_data(self, filepath, startline):
-        return np.genfromtxt(filepath, skip_header=startline + 1)
+        with open(filepath, "r", encoding='ascii', errors='ignore') as fp:
+            return np.genfromtxt(fp, skip_header=startline + 1)
 
     def _extract_header(self, headerdict):
         header = Header()
